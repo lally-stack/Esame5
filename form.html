@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/style.min.css" />
+    <script src="./js/script.js" defer></script>
+    <!-- <script src="validationHELP.js" defer></script> -->
+    <script src="./js/validation.js"></script>
+    <script>
+        window.onload = start;
+    </script>
+    <title>Codex - Registrazione</title>
+    <style>
+        .bottoneCustom {
+            background-color: #ff0068;
+        }
+
+        #main {
+            height: 900px;
+        }
+
+        .pswStr {
+            width: 60px;
+            height: 8px;
+            border-radius: 10px;
+            background-color: rgb(49, 49, 49);
+        }
+
+        #sesso,
+        #tipoInd,
+        #tipoRec {
+            border-left: 4px solid #ff0068;
+            border-radius: 3px;
+        }
+
+        @media screen and (max-width: 768px) {
+            #footer {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .form {
+                width: 80%;
+            }
+
+            #reg {
+                font-size: 23px;
+            }
+        }
+
+        .error {
+            border-color: red;
+            height: 20px;
+            width: 150px;
+            color: red;
+            gap: 10px;
+
+        }
+
+        .okCheck {
+            border-color: green;
+        }
+
+        #dataDiNascita {
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="bg-dark">
+        <nav class="navbar bg-bark">
+            <div class="container-fluid">
+                <div class="d-flex align-items-center">
+                    <h6 class="navbar-brand text-light m-0 px-md-3 px-1">L O G O</h6>
+                </div>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn text-light bottoneCustom" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal" title="Accedi all'area personale">
+                    Accedi
+                </button>
+
+            </div>
+        </nav>
+    </header>
+    <!-- MAIN -->
+    <main class="d-flex justify-content-center" id="main">
+        <img src="https://via.placeholder.com/1920x900/515151" class="img-fluid" alt="background" id="background">
+        <form method="post" action="benvenuto.html" class="form bg-dark position-absolute" id="signUpForm">
+            <h1 class="text-center text-light" id="reg">Registrati!</h1>
+            <!-- PROGERSS BAR -->
+            <div class="progressbar">
+
+                <div class="progress-step progress-step-active"><b>1</b></div>
+                <div class="progress-step"><b>2</b></div>
+                <div class="progress-step"><b>3</b></div>
+                <div class="progress-step"><b>4</b></div>
+                <div class="progress-step"><b>5</b></div>
+            </div>
+            <!-- STEPS -->
+            <div class="form-step form-step-active">
+                <h4 class="text-center text-light">Dettagli Contatto</h4>
+                <div class="input-group">
+                    <input type="text" name="nome" id="nome" placeholder="Nome" required>
+                    <div id="nomeError" class="text-light ms-2 mt-1"></div>
+                </div>
+                <div class="input-group">
+                    <input type="text" name="cognome" id="cognome" placeholder="Cognome" required>
+                    <div id="cognomeError" class="text-light ms-2 mt-1"></div>
+                </div>
+                <div class="input-group">
+                    <input type="email" name="email" id="email" placeholder="Email" required>
+                    <div id="emailError" class="text-light ms-2 mt-1"></div>
+                </div>
+                <div class="d-flex">
+                    <div class="input-group d-flex flex-column">
+                        <div>
+                            <p class="ps-2 text-light" id="sesso">Sesso:</p>
+                        </div>
+                        <div class="ms-3">
+                            <input type="radio" id="ff" name="gender" value="1" required>
+                            <label for="ff" class="text-light">Donna</label>
+                        </div>
+                        <div class="ms-3">
+                            <input type="radio" id="mm" name="gender" value="0" required>
+                            <label for="mm" class="text-light">Uomo</label>
+                        </div>
+                        <div class="ms-3">
+                            <input type="radio" id="ns" name="gender" value="ns" required>
+                            <label for="ns" class="text-light">Non voglio specificare</label>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column justify-content-center mt-5">
+                        <div id="genderError" class="text-light"></div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" name="citta" id="citta" placeholder="Citta" required>
+                    <div id="cittaError" class="text-light ms-2 mt-1"></div>
+                </div>
+                <div class="input-group">
+                    <input type="text" name="provincia" id="provincia" placeholder="Provincia" required>
+                    <div id="provinciaError" class="text-light ms-2 mt-1"></div>
+                </div>
+                <div class="input-group d-flex flex-column">
+                    <label for="dataDiNascita" class="my-2 ms-2 text-light">Data di Nascita</label>
+                    <div class="d-flex">
+                        <input type="date" name="dataDiNascita" id="dataDiNascita" required>
+                        <div id="dataDiNascitaError" class="text-light ms-2 mt-1"></div>
+                    </div>
+                </div>
+                <div class="btns-group">
+                    <a href="#" class="btn btn-next width-50 ml-auto px-4">Next</a>
+                </div>
+            </div>
+            <div class="form-step">
+                <h4 class="text-center text-light">Indirizzo</h4>
+                <div class="input-group d-flex flex-column">
+                    <div>
+                        <p class="ps-2 text-light" id="tipoInd">Tipologia Indirizzo</p>
+                    </div>
+                    <div class="ms-3">
+                        <input type="radio" id="casa" name="tipoIndirizzo" value="1" required>
+                        <label for="casa" class="text-light">Casa</label>
+                    </div>
+                    <div class="ms-3">
+                        <input type="radio" id="ufficio" name="tipoIndirizzo" value="2" required>
+                        <label for="ufficio" class="text-light">Ufficio</label>
+                    </div>
+                    <div class="ms-3">
+                        <input type="radio" id="azienda" name="tipoIndirizzo" value="3" required>
+                        <label for="azienda" class="text-light">Azienda</label>
+                    </div>
+                    <div id="tipoIndirizzoError" class="text-light ms-2 mt-1"></div>
+                </div>
+                <div class="input-group">
+                    <input type="text" name="cap" id="cap" placeholder="Cap" required>
+                    <div id="capError" class="text-light ms-2 mt-1"></div>
+                </div>
+                <div class="input-group">
+                    <input type="text" name="indirizzo" id="indirizzo" placeholder="Indrizzo" required>
+                    <div id="indirizzoError" class="text-light ms-2 mt-1"></div>
+                </div>
+                <div class="input-group">
+                    <input type="text" name="civico" id="civico" placeholder="Civico" required>
+                    <div id="civicoError" class="text-light ms-2 mt-1"></div>
+                </div>
+                <div class="btns-group">
+                    <a href="#" class="btn btn-prev">Previous</a>
+                    <a href="#" class="btn btn-next px-4">Next</a>
+                </div>
+            </div>
+            <div class="form-step">
+                <h4 class="text-center text-light">Recapito</h4>
+                <div class="input-group d-flex flex-column">
+                    <div>
+                        <p class="ps-2 text-light" id="tipoRec">Tipologia Recapito</p>
+                    </div>
+                    <div class="ms-3">
+                        <input type="radio" id="telefono" name="tipoRecapito" value="1" required>
+                        <label for="telefono" class="text-light">Telefono</label>
+                    </div>
+                    <div class="ms-3">
+                        <input type="radio" id="cellulare" name="tipoRecapito" value="2" required>
+                        <label for="cellulare" class="text-light">Cellulare</label>
+                    </div>
+                    <div class="ms-3">
+                        <input type="radio" id="aziendale" name="tipoRecapito" value="3" required>
+                        <label for="aziendale" class="text-light">Aziendale</label>
+                    </div>
+                    <div id="tipoRecapitoError" class="text-light"></div>
+                </div>
+                <div class="input-group">
+                    <input type="tel" name="recapito" id="recapito" placeholder="Recapito" required>
+                    <div id="recapitoError" class="text-light ms-2 mt-1"></div>
+                </div>
+                <div class="btns-group">
+                    <a href="#" class="btn btn-prev">Previous</a>
+                    <a href="#" class="btn btn-next px-4">Next</a>
+                </div>
+            </div>
+            <div class="form-step">
+                <h4 class="text-center text-light">Account</h4>
+                <div class="input-group">
+                    <input type="text" name="username" id="username" placeholder="Username" required>
+                    <div id="usernameError" class="text-light ms-2 mt-1"></div>
+                </div>
+                <div class="input-group">
+                    <input type="password" name="password" id="password" placeholder="Password" required>
+                    <div class="d-flex ms-4 align-items-center">
+                        <div id="l_1" class=" pswStr me-2"></div>
+                        <div id="l_2" class=" pswStr me-2"></div>
+                        <div id="l_3" class=" pswStr"></div>
+                    </div>
+
+                    <div id="passwordError" class="text-light ms-2 mt-1"></div>
+                </div>
+                <div class="input-group">
+                    <input type="password" name="retypePassword" id="retypePassword" placeholder="Ripeti la Password"
+                        required>
+                    <div id="retypePasswordError" class="text-light ms-2 mt-1"></div>
+                </div>
+                <div class="btns-group">
+                    <a href="#" class="btn btn-prev">Previous</a>
+                    <a href="#" class="btn btn-next px-4">Next</a>
+                </div>
+            </div>
+            <div class="form-step">
+                <h3 class="text-center text-light m-4">Tutto pronto!</h3>
+                <p class="text-center text-light m-4">Lorem ipsum spiegazione permessi ecc</p>
+                <div class="d-flex justify-content-center mb-4">
+                    <input type="checkbox" name="terms" id="terms" required>
+                    <label for="terms" class="text-light ms-2">Accetto termini e condizioni</label>
+                    <div id="termsError" class="text-light"></div>
+                </div>
+
+                <div class="btns-group">
+                    <a href="#" class="btn btn-prev">Previous</a>
+                    <input type="submit" value="Submit" class="btn" id="signUpBtn" />
+                </div>
+            </div>
+        </form>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark d-flex flex-column justify-content-evenly">
+        <div class="row me-0" id="footer">
+            <div class="col-4 my-3 d-flex flex-column align-items-center p-0">
+                <a class="text-secondary text-decoration-none p-1 fs-6" href="#">F.A.Q.</a>
+                <a class="text-secondary text-decoration-none p-1 fs-6" href="#">Privacy</a>
+                <a class="text-secondary text-decoration-none p-1 fs-6 text-center" href="#">Informativa sui cookies</a>
+                <a class="text-secondary text-decoration-none p-1 fs-6" href="#">Crediti</a>
+            </div>
+            <div class="col-4 my-3 d-flex flex-column align-items-center p-0">
+                <a class="text-secondary text-decoration-none p-1 fs-6" href="#">Link 1</a>
+                <a class="text-secondary text-decoration-none p-1 fs-6" href="#">Link 2</a>
+                <a class="text-secondary text-decoration-none p-1 fs-6" href="#">Link 3</a>
+            </div>
+            <div class="col-4 my-3 d-flex flex-column align-items-center p-0">
+                <a class="text-secondary text-decoration-none p-1 fs-6" href="#">Link 1</a>
+                <a class="text-secondary text-decoration-none p-1 fs-6" href="#">Link 2</a>
+                <a class="text-secondary text-decoration-none p-1 fs-6" href="#">Link 3</a>
+            </div>
+        </div>
+        <p class="text-light text-center">Copyright 2023 - CODEX</p>
+    </footer>
+    <!-- MODAL ACCESSO -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark text-light">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Accedi</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- form login -->
+                    <form>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Username</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Ricordami</label>
+                        </div>
+                        <button type="submit" class="btn btn-lg bottoneCustom">Accedi</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
